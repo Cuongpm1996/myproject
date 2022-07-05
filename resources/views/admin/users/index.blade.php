@@ -1,6 +1,7 @@
 @extends('admin.layout')
 
 @section('content')
+    <div class="container">
     <div class="card">
         <div class="alert alert-success">
             @if(session('success'))
@@ -56,5 +57,6 @@
             </table>
             {{$users->links()}}
         </div>
+    </div>
     </div>
 @endsection

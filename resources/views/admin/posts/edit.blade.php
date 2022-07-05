@@ -1,5 +1,6 @@
 @extends('admin.layout')
 @section('content')
+    <div class="container">
     <div class="row">
         <div class="col-md-12">
             @if ($errors->any())
@@ -15,7 +16,7 @@
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Thêm mới</h3>
+                        <h3 class="card-title">Chỉnh sửa</h3>
                     </div>
                     <div class="card-body">
                         @csrf
@@ -57,4 +58,5 @@
             </form>
         </div>
     </div>
+    <div>
 @endsection

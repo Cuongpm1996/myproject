@@ -1,5 +1,6 @@
 @extends('admin.layout')
 @section('content')
+    <div class="container">
     <div class="row">
         <div class="col-md-12">
             @if ($errors->any())
@@ -57,5 +58,5 @@
             </form>
         </div>
     </div>
-
+<div>
 @endsection
