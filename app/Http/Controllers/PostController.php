@@ -61,6 +61,20 @@ class PostController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'title' => 'required|unique:posts|max:255',
+            'short_content' => 'required|unique:posts',
+            'content' => 'required',
+        ], [
+            'title.required' => 'Bạn cần nhập tiêu đề',
+            'short_content.required' => 'Bạn cần nhập nội dung ngắn',
+            'content.required' => 'Bạn cần nhập nội dung',
+            'title.unique' => 'Tiêu đề đã tồn tại',
+            'short_content.unique' => 'Nội dung ngắn đã tồn tại',
+            'content.unique' => 'Nội dung đã tồn tại',
+            'title.max' => 'Tiêu đề không được quá 255 ký tự',
+        ]);
+
         $data = $request->all();
         $post = Post::find($id);
         $post->update($data);
