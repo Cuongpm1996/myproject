@@ -2,6 +2,15 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
+            @if ($errors->any())
+                <div class="alert alert-default-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form method="post" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
                 <div class="card card-primary">
