@@ -21,7 +21,8 @@
                         @csrf
                         <div class="form-group" style="display: flex">
                             <div class="col-6">
-                                <label for="name">Tiều Đề(<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
+                                <label for="name">Tiều Đề(<span class="fa fa-star"
+                                                                style="font-size:10px;color:red"></span>):</label>
                                 <input class="form-control" type="text" name="title" value="{{$post->title}}">
                             </div>
                             <div class="col-6">
@@ -39,7 +40,8 @@
                                 </script>
                             </div>
                             <div class="col-6">
-                                <label>Nội Dung(<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
+                                <label>Nội Dung(<span class="fa fa-star"
+                                                      style="font-size:10px;color:red"></span>):</label>
                                 <textarea name="content" class="form-control" id="editor2"
                                           placeholder="Nhập mô tả">{{$post->content}}</textarea>
                                 <script>

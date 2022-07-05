@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::first()->simplePaginate(3);;
+        $posts = Post::first()->simplePaginate(3);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -25,7 +25,7 @@ class PostController extends Controller
             'title' => 'required|unique:posts|max:255',
             'short_content' => 'required|unique:posts',
             'content' => 'required',
-        ],[
+        ], [
             'title.required' => 'Bạn cần nhập tiêu đề',
             'short_content.required' => 'Bạn cần nhập nội dung ngắn',
             'content.required' => 'Bạn cần nhập nội dung',
@@ -35,11 +35,11 @@ class PostController extends Controller
             'title.max' => 'Tiêu đề không được quá 255 ký tự',
         ]);
 
-         $request->all();
+        $request->all();
         if ($request->has('file_update')) {
             $file = $request->file_update;
             $ext = $request->file_update->extension();
-            $file_name = time().'-'.'product.'.$ext;
+            $file_name = time() . '-' . 'product.' . $ext;
 //            dd($file_name);
             $file->move(public_path('update'), $file_name);
         }
@@ -48,7 +48,7 @@ class PostController extends Controller
 
         Post::create($data);
 
-        return redirect()->route('admin.posts.index')->with('success','Thêm bài viết thành công !');
+        return redirect()->route('admin.posts.index')->with('success', 'Thêm bài viết thành công !');
     }
 
     public function edit(int $id)
@@ -65,7 +65,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->update($data);
 
-        return redirect()->route('admin.posts.index')->with('success','Sửa bài viết thành công !');
+        return redirect()->route('admin.posts.index')->with('success', 'Sửa bài viết thành công !');
     }
 
     public function destroy($id)
@@ -73,7 +73,7 @@ class PostController extends Controller
         $post = Post::find($id);
         $post->delete();
 
-        return redirect()->route('admin.posts.index')->with('success','Xóa bài viết thành công !');
+        return redirect()->route('admin.posts.index')->with('success', 'Xóa bài viết thành công !');
     }
 }
 
