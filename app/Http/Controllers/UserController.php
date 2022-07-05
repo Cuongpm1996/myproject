@@ -9,7 +9,9 @@ class UserController extends Controller
 {
     public function index()
     {
+        $users = User::first()->simplePaginate(3);
 
+        return view('admin.users.index', compact('users'));
     }
 
     public function create()
