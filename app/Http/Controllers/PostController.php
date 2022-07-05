@@ -48,23 +48,32 @@ class PostController extends Controller
 
         Post::create($data);
 
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('admin.posts.index')->with('success','Thêm bài viết thành công !');
     }
 
-    public function edit()
+    public function edit(int $id)
     {
+        $post = Post::find($id);
 
+        return view('admin.posts.edit', compact('post'));
     }
 
 
-    public function update()
+    public function update(Request $request, $id)
     {
+        $data = $request->all();
+        $post = Post::find($id);
+        $post->update($data);
 
+        return redirect()->route('admin.posts.index')->with('success','Sửa bài viết thành công !');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
+        $post = Post::find($id);
+        $post->delete();
 
+        return redirect()->route('admin.posts.index')->with('success','Xóa bài viết thành công !');
     }
 }
 
