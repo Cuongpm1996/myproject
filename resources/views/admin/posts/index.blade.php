@@ -17,7 +17,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" style="text-align: center">
                     <thead>
                     <tr>
                         <th>STT</th>
@@ -30,11 +30,11 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td>{{ $post->id }}</td>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->short_content }}</td>
-                            <td width="40px"><img src=/update/{{$post->image}} style="width:50px;height:50px"></td>
+                            <td width="300px">{{ $post->title }}</td>
+                            <td width="400px">{{ $post->short_content }}</td>
+                            <td style="text-align: center"><img src=/update/{{$post->image}} style="width:50px;height:50px"></td>
 
-                            <td>
+                            <td style="text-align: center">
                                 <a class="btn btn-info btn-sm" href="/admin/posts/{{ $post->id }}/edit">
                                     <i class="fas fa-pencil-alt">
                                     </i>
@@ -49,6 +49,7 @@
                         </tr>
                     @endforeach
                 </table>
+                <br>
                 {{ $posts->links() }}
             </div>
         </div>
