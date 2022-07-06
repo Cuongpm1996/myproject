@@ -13,6 +13,7 @@
                         <form action="{{route('profile')}}" method="post" style="text-align: center">
                             @csrf
                             @method('put')
+                            <H2> THÔNG TIN TÀI KHOẢN</H2>
                             <div class="form-group">
                                 <input type="text" value="{{auth()->user()->email}}" >
                             </div>
