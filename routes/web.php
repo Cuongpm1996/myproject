@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +33,18 @@ Route::post('admin/users/store', [UserController::class, 'store'])->name('admin.
 Route::get('admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
 Route::put('admin/users/{id}/update', [UserController::class, 'update'])->name('admin.users.update');
 Route::delete('admin/users/{id}/destroy', [UserController::class, 'destroy'])->name('admin.users.destroy');
+
+//Auth
+Route::get('register', [AuthController::class, 'showFormRegister'])->name('show-form-register');
+Route::post('register', [AuthController::class, 'register'])->name('register');
+
+Route::get('login', [AuthController::class, 'showFormLogin'])->name('show-form-login');
+Route::post('login', [AuthController::class, 'login'])->name('login');
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('profile', [AuthController::class, 'showProfile'])->name('show-profile');
+Route::put('profile', [AuthController::class, 'Profile'])->name('profile');
+
+Route::get('/forget-password', [AuthController::class, 'forgetPass'])->name('forget_pass');
+Route::post('/forget-password', [AuthController::class, 'postForgetPass']);
