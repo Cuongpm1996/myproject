@@ -17,7 +17,7 @@
             </div>
 
             <div class="card-body">
-                <table class="table table-bordered table-hover" style="text-align: center">
+                <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th>STT</th>
