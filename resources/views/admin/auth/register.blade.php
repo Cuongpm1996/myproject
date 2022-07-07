@@ -36,7 +36,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary mt-4">Đăng Ký</button>
                         </form>
-                        <a href="{{route('login')}}">Đến Trang Đăng Nhập</a>
+                        <a href="{{route('show-form-login')}}">Đến Trang Đăng Nhập</a>
                     </div>
                 </div>
             </div>
