@@ -31,6 +31,10 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->token = strtoupper(Str::random(20));
         $user->save();
+        Mail::send('emails.active_account', compact('user',), function ($email) use($user){
+            $email->subject('Admin');
+            $email->to($user->email,$user->name);
+        });
 
         return redirect()->route('show-form-register')->with('success', 'Chúc Mừng Bạn Đã Đăng Đăng Ký Thành Công !! !');
     }

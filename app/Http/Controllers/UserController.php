@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::first()->simplePaginate(3);
+        $users = User::first()->simplePaginate(6);
 
         return view('admin.users.index', compact('users'));
     }

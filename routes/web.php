@@ -48,3 +48,5 @@ Route::put('profile', [AuthController::class, 'Profile'])->name('profile');
 
 Route::get('/forget-password', [AuthController::class, 'forgetPass'])->name('forget_pass');
 Route::post('/forget-password', [AuthController::class, 'postForgetPass']);
+
+Route::get('/active/{user}/{token}', [AuthController::class, 'active'])->name('admin.user.active');

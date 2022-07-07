@@ -27,6 +27,7 @@
                         <th width="100px">STT</th>
                         <th width="150px">Tên</th>
                         <th width="150px">Email</th>
+                        <th width="150px">Chức Danh</th>
                         <th width="150px">Hành Động</th>
                     </tr>
                     </thead>
@@ -35,6 +36,7 @@
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->is_admin ==1?'Amin':'User'}}</td>
                             <td style="display: flex">
                                 <a class="btn btn-info btn-sm"
                                    href="{{ route('admin.users.edit', ['id' => $user->id ]) }}">
