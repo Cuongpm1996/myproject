@@ -24,15 +24,15 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Tên (<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
-                            <input class="form-control" type="text" name="name">
+                            <input class="form-control" type="text" name="name" required="">
                         </div>
                         <div class="form-group">
                             <label for="email">Email (<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
-                            <input class="form-control" type="text" name="email">
+                            <input class="form-control" type="text" name="email" required="">
                         </div>
                         <div class="form-group">
                             <label for="password">Mật Khẩu (<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
-                            <input class="form-control" type="text" name="password">
+                            <input class="form-control" type="text" name="password" required="">
                         </div>
                     </div>
                     <div class="card-footer">

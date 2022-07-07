@@ -24,17 +24,17 @@
                             <div class="col-6">
                                 <label for="name">Tiều Đề(<span class="fa fa-star"
                                                                 style="font-size:10px;color:red"></span>):</label>
-                                <input class="form-control" type="text" name="title">
+                                <input class="form-control" type="text" name="title" required="">
                             </div>
                             <div class="col-6">
                                 <label>Ảnh:</label>
-                                <input type="file" class="form-control" name="file_update" value="">
+                                <input type="file" class="form-control" name="file_update" value="" required="">
                             </div>
                         </div>
                         <div class="form-group" style="display: flex">
                             <div class="col-6">
                                 <label>Nội Dung Ngắn(<span class="fa fa-star" style="font-size:10px;color:red"></span>):</label>
-                                <textarea name="short_content" class="form-control" id="editor1"
+                                <textarea name="short_content" class="form-control" id="editor1" required=""
                                           placeholder="Nhập mô tả"></textarea>
                                 <script>
                                     CKEDITOR.replace('editor1');
@@ -43,7 +43,7 @@
                             <div class="col-6">
                                 <label>Nội Dung(<span class="fa fa-star"
                                                       style="font-size:10px;color:red"></span>):</label>
-                                <textarea name="content" class="form-control" id="editor2"
+                                <textarea name="content" class="form-control" id="editor2" required=""
                                           placeholder="Nhập mô tả"></textarea>
                                 <script>
                                     CKEDITOR.replace('editor2');
