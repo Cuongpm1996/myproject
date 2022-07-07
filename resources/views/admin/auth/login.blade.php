@@ -15,10 +15,10 @@
                             <h2>Vui lòng đăng nhập để vào hệ thống của chúng tôi</h2>
                             <i>Lưu ý: Chỉ admin mới có quyền vào trang quản lý</i>
                             <div class="form-group">
-                                <input type="text" name="email">
+                                <input type="text" name="email" placeholder="Nhập email" required="">
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password">
+                                <input type="password" name="password" placeholder="Nhập mật Khẩu" required="">
                             </div>
                             <div class="form-group">
                                 <p>Bạn đã quên mật khẩu ?<a href="{{route('forget_pass')}}">Click để lấy lại mật khẩu</a> </p>

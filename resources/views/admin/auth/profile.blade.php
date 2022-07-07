@@ -18,13 +18,14 @@
                         <form action="{{route('profile')}}" method="post" style="text-align: center">
                             @csrf
                             @method('put')
+                            <i style="color: red">Bạn có thể thay đổi tài khoản của mình tại đây</i>
                             <div class="form-group">
                                 <input type="text" name="email" value="{{auth()->user()->email}}" placeholder="email">
                             </div>
                             <div class="form-group">
                                 <input type="text" name="name" value="{{auth()->user()->name}}" placeholder="name">
                             </div>
-                            <i>Vui lòng tích vào để thay đổi cả mật khẩu</i>
+                            <i style="color: red">Vui lòng tích vào để thay đổi cả mật khẩu</i>
                             <div class="form-group">
                                 <input type="checkbox" name="change_password">
                             </div>

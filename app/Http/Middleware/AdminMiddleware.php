@@ -21,8 +21,8 @@ class AdminMiddleware
             if (Auth::user()->is_admin) {
                 return $next($request);
             }
-            return redirect()->route('show-form-login')->with('error', 'Bạn Không phải admin, không thể thao tác trong trang quản lý của chúng tôi !!');
+            return redirect()->route('show-form-user');
         }
-        return redirect()->route('show-form-login');
+        return redirect()->route('admin.posts.index');
     }
 }

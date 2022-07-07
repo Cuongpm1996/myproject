@@ -102,4 +102,8 @@ class AuthController extends Controller
             return 'XU lys tiep';
         }
     }
+
+    public function showFormUser(){
+        return view('admin.auth.user');
+    }
 }
