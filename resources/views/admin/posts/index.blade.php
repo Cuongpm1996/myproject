@@ -9,13 +9,13 @@
             </div>
             <div class="card-header">
                 <h3 class="card-title">Quản Lý Bài Viết</h3>
-                <div class="card-tools"><a class="btn btn-primary btn-sm" href="/admin/posts/create">
+                <div class="card-tools">
+                    <a class="btn btn-primary btn-sm" href="/admin/posts/create">
                         <i class="fas fa-folder">
                         </i>
                         Add
                     </a></div>
             </div>
-
             <div class="card-body">
                 <table class="table table-bordered table-hover">
                     <thead>

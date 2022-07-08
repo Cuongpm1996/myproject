@@ -20,13 +20,55 @@
                         <div class="card-body">
                             {{ method_field('PUT') }}
                             @csrf
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input class="form-control" type="text" value="{{ $user->name }}" name="name">
+                            <div class="form-group" style="display: flex">
+                                <div class="col-4">
+                                    <label for="name">Tên (<span class="fa fa-star"
+                                                                 style="font-size:10px;color:red"></span>):</label>
+                                    <input class="form-control" type="text" name="name" required="" value="{{$user->name}}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="email">Email (<span class="fa fa-star"
+                                                                    style="font-size:10px;color:red"></span>):</label>
+                                    <input class="form-control" type="text" name="email" required="" value="{{$user->email}}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="password">Mật Khẩu (<span class="fa fa-star"
+                                                                          style="font-size:10px;color:red"></span>):</label>
+                                    <input class="form-control" type="text" name="password" required="" value="{{$user->password}}">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input class="form-control" type="text" value="{{ $user->email }}" name="email">
+                            <div class="form-group" style="display: flex">
+                                <div class="col-4">
+                                    <label for="name">Token (<span class="fa fa-star"
+                                                                   style="font-size:10px;color:red"></span>):</label>
+                                    <input class="form-control" type="text" name="token" required="" value="{{$user->token}}">
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Loại Tài Khoản:</label>
+                                    <div class="form-control">
+                                        <label>
+                                            <input type="radio" name="is_admin" value="1" checked="checked">
+                                            Admin
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="is_admin" value="0" checked="checked">
+                                            User
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <label for="">Trạng Thái:</label>
+                                    <div class="form-control">
+                                        <label>
+                                            <input type="radio" name="status" value="1" checked="checked">
+                                            Kích Hoạt
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="status" value="0" checked="checked">
+                                            Chưa Kích Hoạt
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer">

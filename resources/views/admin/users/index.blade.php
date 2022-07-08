@@ -20,14 +20,15 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body p-0" style="display: block;">
-                <table class="table table-striped projects">
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
                     <thead>
                     <tr>
                         <th width="100px">STT</th>
                         <th width="150px">Tên</th>
                         <th width="150px">Email</th>
-                        <th width="150px">Chức Danh</th>
+                        <th width="150px">Loại Tài Khoản</th>
+                        <th width="150px">Trạng Thái</th>
                         <th width="150px">Hành Động</th>
                     </tr>
                     </thead>
@@ -37,6 +38,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->is_admin ==1?'Amin':'User'}}</td>
+                            <td>{{ $user->status ==1?'Kích Hoạt':'Chưa Kích Hoạt'}}</td>
                             <td style="display: flex">
                                 <a class="btn btn-info btn-sm"
                                    href="{{ route('admin.users.edit', ['id' => $user->id ]) }}">

@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::first()->simplePaginate(6);
+        $users = User::first()->simplePaginate(10);
 
         return view('admin.users.index', compact('users'));
     }
@@ -25,7 +25,7 @@ class UserController extends Controller
             'name' => 'required|unique:users|max:255',
             'email' => 'required|unique:users|max:255|email',
             'password' => 'required|min:6',
-
+            'token' => 'required',
         ],[
             'name.required' => 'Bạn cần nhập tên tài khoản',
             'email.required' => 'Bạn cần nhập email',
@@ -35,7 +35,8 @@ class UserController extends Controller
             'name.max' => 'Tên tối đa 255 ký tự',
             'email.max' => 'Email tối đa 255 ký tự',
             'password.min' => 'Mật Khẩu tối thiếu có 6 ký tự',
-            'email.email' => 'Bạn phải nhập địa chỉ email hợp lệ',
+            'token.email' => 'Bạn phải nhập địa chỉ email hợp lệ',
+            'token.required' => 'Bạn phải nhập token',
         ]);
 
         $data = $request->all();
@@ -54,19 +55,6 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|unique:users|max:255',
-            'email' => 'required|unique:users|max:255|email',
-
-        ],[
-            'name.required' => 'Bạn cần nhập tên tài khoản',
-            'email.required' => 'Bạn cần nhập email',
-            'name.unique' => 'Tên tài khoản đã tồn tại',
-            'email.unique' => 'Email đã tồn tại',
-            'name.max' => 'Tên tối đa 255 ký tự',
-            'email.max' => 'Email tối đa 255 ký tự',
-            'email.email' => 'Bạn phải nhập địa chỉ email hợp lệ',
-        ]);
         $data = $request->all();
         $user = User::find($id);
         $user->update($data);
