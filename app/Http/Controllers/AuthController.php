@@ -91,19 +91,48 @@ class AuthController extends Controller
         return view('admin.auth.forget_pass');
     }
 
-    public function postForgetPass(User $user, $token)
+    public function postForgetPass(Request $request)
     {
-        if ($user->token === $token) {
-            Mail::send('emails.forget_pass', compact('user',), function ($email) use($user){
-                $email->subject('VatLieuHome-Lấy lại mật khẩu');
+        $validated = $request->validate([
+            'email' => 'required|exists:users',
+        ],[
+            'email.required' => 'Bạn cần nhập email',
+            'email.exists' => 'Email này không tồn tại trong hệ thống'
+        ]);
+        $token = strtoupper(Str::random(20));
+        $user = User::where('email', $request->email)->first();
+        $user->update(['token' => $token]);
+            Mail::send('emails.forget_account', compact('user',), function ($email) use($user){
+                $email->subject('Admin-Lấy lại mật khẩu');
                 $email->to($user->email,$user->name);
             });
-        } else {
-            return 'XU lys tiep';
-        }
+        return 'Vui lòng check mail của bạn';
     }
 
     public function showFormUser(){
         return view('admin.auth.user');
+    }
+
+    public function getPass(User $user, $token)
+    {
+        if ($user->token === $token) {
+            return view('admin.auth.getPass');
+        }
+        return abort(404);
+    }
+
+    public function postGetPass(User $user, $token, Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'confirm-password' => 'required',
+        ],[
+            'password.required' => 'Bạn cần nhập mật khẩu',
+            'confirm-password.required' => 'Bạn cần nhập lại mật khẩu '
+        ]);
+        $password_h = bcrypt($request->password);
+        $user->update(['password' => $password_h, 'token' => null]);
+
+        return 'Đổi Mật Khẩu Thành công';
     }
 }
