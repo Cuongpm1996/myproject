@@ -52,3 +52,4 @@ Route::post('/forget-password', [AuthController::class, 'postForgetPass']);
 Route::get('/active/{user}/{token}', [AuthController::class, 'active'])->name('admin.user.active');
 
 Route::get('/user', [AuthController::class, 'showFormUser'])->name('show-form-user');
+

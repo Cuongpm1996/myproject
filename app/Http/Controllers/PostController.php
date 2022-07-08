@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::first()->simplePaginate(3);
+        $posts = Post::first()->simplePaginate(10);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -40,7 +40,6 @@ class PostController extends Controller
             $file = $request->file_update;
             $ext = $request->file_update->extension();
             $file_name = time() . '-' . 'product.' . $ext;
-//            dd($file_name);
             $file->move(public_path('update'), $file_name);
         }
         $request->merge(['image' => $file_name]);
