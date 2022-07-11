@@ -36,7 +36,7 @@ class AuthController extends Controller
             $email->to($user->email,$user->name);
         });
 
-        return redirect()->route('show-form-register')->with('success', 'Chúc Mừng Bạn Đã Đăng Đăng Ký Thành Công !! !');
+        return redirect()->route('show-form-register')->with('success', 'Chúc Mừng Bạn Đã Đăng Đăng Ký Thành Công! Vui lòng check mail');
     }
 
     public function showFormLogin(){
@@ -106,7 +106,7 @@ class AuthController extends Controller
                 $email->subject('Admin-Lấy lại mật khẩu');
                 $email->to($user->email,$user->name);
             });
-        return 'Vui lòng check mail của bạn';
+        return 'Vui lòng kiểm tra email của bạn';
     }
 
     public function showFormUser(){

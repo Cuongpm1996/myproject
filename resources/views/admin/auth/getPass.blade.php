@@ -2,8 +2,8 @@
 @section('content')
     <div class="container">
         <div class="alert alert-success">
-            @if(session('error'))
-                {{ session('error') }}
+            @if(session('success'))
+                {{ session('success') }}
             @endif
         </div>
         <div class="row">
@@ -14,11 +14,11 @@
                             @csrf
                             <div class="form-group" >
                                 <label class="col-3">Mật Khẩu</label>
-                                <input type="password" name="password" placeholder="password" class="col-4">
+                                <input type="password" name="password" placeholder="password" class="col-4" required="">
                             </div>
                             <div class="form-group">
                                 <label class="col-3">Nhập Lại Mật Khẩu</label>
-                                <input type="password" name="confirm-password" placeholder="confirm-password" class="col-4">
+                                <input type="password" name="confirm-password" placeholder="confirm-password" class="col-4" required="">
                             </div>
                             <button type="submit" class="btn btn-primary mt-4">Đặt Lại Mật Khẩu</button>
                         </form>

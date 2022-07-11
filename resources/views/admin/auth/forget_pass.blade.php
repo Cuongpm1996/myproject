@@ -11,7 +11,7 @@
                             <h2>lấy lại mật khẩu</h2>
                             <p>Vui lòng nhập email mà bạn đã đăng ký tài khoản</p>
                             <div class="form-group">
-                                <input type="text" name="email">
+                                <input type="text" name="email" required="">
                             </div>
                             <button type="submit" class="btn btn-primary mt-4">Lấy lại mật khẩu</button>
                         </form>
