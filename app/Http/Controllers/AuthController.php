@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ActiveMail;
+use App\Mail\ForgetMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,11 +33,8 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->token = strtoupper(Str::random(20));
         $user->save();
-        Mail::send('emails.active_account', compact('user',), function ($email) use($user){
-            $email->subject('Admin');
-            $email->to($user->email,$user->name);
-        });
-
+        $mailable = new ActiveMail($user);
+        Mail::to($user->email)->queue($mailable);
         return redirect()->route('show-form-register')->with('success', 'Chúc Mừng Bạn Đã Đăng Đăng Ký Thành Công! Vui lòng check mail');
     }
 
@@ -102,10 +101,9 @@ class AuthController extends Controller
         $token = strtoupper(Str::random(20));
         $user = User::where('email', $request->email)->first();
         $user->update(['token' => $token]);
-            Mail::send('emails.forget_account', compact('user',), function ($email) use($user){
-                $email->subject('Admin-Lấy lại mật khẩu');
-                $email->to($user->email,$user->name);
-            });
+        $mailable = new ForgetMail($user);
+        Mail::to($user->email)->queue($mailable);
+
         return 'Vui lòng kiểm tra email của bạn';
     }
 
