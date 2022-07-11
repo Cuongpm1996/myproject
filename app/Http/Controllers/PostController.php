@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::first()->simplePaginate(10);
+        $posts = Post::simplePaginate(10);
 
         return view('admin.posts.index', compact('posts'));
     }
@@ -73,6 +73,21 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('admin.posts.index')->with('success', 'Xóa bài viết thành công !');
+    }
+
+    public function trash()
+    {
+        $posts = Post::onlyTrashed()->simplePaginate(10);
+
+        return view('admin.posts.trash', compact('posts'));
+    }
+
+    public function untrash($id)
+    {
+        $post = Post::withTrashed()->find($id);
+        $post->restore();
+
+        return redirect()->back()->with('no', 'Phục Hồi thành công !!!');
     }
 }
 

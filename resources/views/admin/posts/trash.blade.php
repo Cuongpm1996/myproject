@@ -7,20 +7,6 @@
                     {{ session('success') }}
                 @endif
             </div>
-            <div class="card-header">
-                <h3 class="card-title">Quản Lý Bài Viết</h3>
-                <div class="card-tools">
-                    <a class="btn btn-primary btn-sm" href="/admin/posts/create">
-                        <i class="fas fa-folder">
-                        </i>
-                        Thêm
-                    </a>
-                    <a class="btn btn-dark btn-sm" href="{{route('admin.posts.trash')}}">
-                        <i class="fas fa-folder">
-                        </i>
-                        Thùng rác
-                    </a></div>
-            </div>
             <div class="card-body">
                 <table class="table table-bordered table-hover">
                     <thead>
@@ -40,15 +26,10 @@
                             <td style="text-align: center"><img src=/update/{{$post->image}} style="width:50px;height:50px"></td>
 
                             <td style="text-align: center">
-                                <a class="btn btn-info btn-sm" href="/admin/posts/{{ $post->id }}/edit">
+                                <a class="btn btn-info btn-sm" href="/admin/posts/{{ $post->id }}/untrash">
                                     <i class="fas fa-pencil-alt">
                                     </i>
-                                    Edit
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="/admin/posts/{{ $post->id }}/destroy">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Delete
+                                    Khôi Phục
                                 </a>
                             </td>
                         </tr>

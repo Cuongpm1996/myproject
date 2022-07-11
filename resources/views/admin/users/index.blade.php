@@ -15,7 +15,7 @@
                         <a class="btn btn-primary btn-sm" href="/admin/users/create">
                             <i class="fas fa-folder">
                             </i>
-                            Add
+                            Thêm
                         </a>
                     </div>
                 </div>
