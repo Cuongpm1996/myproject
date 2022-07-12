@@ -3,11 +3,6 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="alert alert-success">
-                @if(session('success'))
-                    {{ session('success') }}
-                @endif
-            </div>
             <div class="card-header">
                 <h3 class="card-title">Quản Lý User</h3>
                 <div class="card-header">
@@ -50,7 +45,7 @@
                                 <form action="{{ route('admin.users.destroy', ['id' => $user->id ]) }}" method="post">
                                     @csrf
                                     {{ method_field('DELETE') }}
-                                    <button class="btn btn-danger btn-sm" type="submit">
+                                    <button class="btn btn-danger btn-sm"onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');">
                                         <i class="fas fa-trash">
                                         </i>
                                         Delete

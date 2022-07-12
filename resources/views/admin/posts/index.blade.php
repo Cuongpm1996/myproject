@@ -2,11 +2,6 @@
 @section('content')
     <div class="container">
         <div class="card">
-            <div class="alert alert-success">
-                @if(session('success'))
-                    {{ session('success') }}
-                @endif
-            </div>
             <div class="card-header">
                 <h3 class="card-title">Quản Lý Bài Viết</h3>
                 <div class="card-tools">
@@ -45,7 +40,7 @@
                                     </i>
                                     Edit
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="/admin/posts/{{ $post->id }}/destroy">
+                                <a class="btn btn-danger btn-sm" href="/admin/posts/{{ $post->id }}/destroy" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');">
                                     <i class="fas fa-trash">
                                     </i>
                                     Delete

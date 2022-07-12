@@ -46,8 +46,9 @@ class PostController extends Controller
         $data = $request->all();
 
         Post::create($data);
+        session()->flash('success', 'Thêm Bài viết thành công');
 
-        return redirect()->route('admin.posts.index')->with('success', 'Thêm bài viết thành công !');
+        return redirect()->route('admin.posts.index');
     }
 
     public function edit(int $id)
@@ -63,16 +64,18 @@ class PostController extends Controller
         $data = $request->all();
         $post = Post::find($id);
         $post->update($data);
+        session()->flash('success', 'Sửa bài viết thành công !!');
 
-        return redirect()->route('admin.posts.index')->with('success', 'Sửa bài viết thành công !');
+        return redirect()->route('admin.posts.index');
     }
 
     public function destroy($id)
     {
         $post = Post::find($id);
         $post->delete();
+        session()->flash('success', 'Xóa bài viết thành công');
 
-        return redirect()->route('admin.posts.index')->with('success', 'Xóa bài viết thành công !');
+        return redirect()->route('admin.posts.index');
     }
 
     public function trash()
