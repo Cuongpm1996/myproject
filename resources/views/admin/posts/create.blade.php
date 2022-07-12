@@ -37,7 +37,12 @@
                                 <textarea name="short_content" class="form-control" id="editor1" required=""
                                           placeholder="Nhập mô tả"></textarea>
                                 <script>
-                                    CKEDITOR.replace('editor1');
+                                    CKEDITOR.replace( 'editor1', {
+                                        filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+                                        filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+                                        filebrowserWindowWidth: '1000',
+                                        filebrowserWindowHeight: '700'
+                                    });
                                 </script>
                             </div>
                             <div class="col-6">

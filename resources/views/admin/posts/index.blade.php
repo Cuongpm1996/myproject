@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $post->id }}</td>
                             <td width="300px">{{ $post->title }}</td>
-                            <td width="400px">{{ $post->short_content }}</td>
+                            <td width="400px">{!! $post->short_content !!}</td>
                             <td style="text-align: center"><img src=/update/{{$post->image}} style="width:50px;height:50px"></td>
 
                             <td style="text-align: center">

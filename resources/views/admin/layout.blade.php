@@ -27,6 +27,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
     <script src="/ckeditor/ckeditor.js"></script>
+    <script src="/ckfinder/ckfinder.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
